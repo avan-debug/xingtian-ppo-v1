@@ -1,0 +1,25 @@
+WARNING:tensorflow:From /home/tank/miniconda3/envs/openmmlab/lib/python3.7/site-packages/tensorflow/python/compat/v2_compat.py:96: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+WARNING: Logging before flag parsing goes to stderr.
+INFO [tank-ProLiant-DL580-Gen9 192.168.1.128] Oct 06 17:19:29: 
+**************************************************
+ XT start work...
+Namespace(config_file='train_ppo_dif_inf/PpoCnnLiteV3_LR_0.00065.yaml', save_to_s3=None, task='train', verbosity='info')
+**************************************************
+ERROR [tank-ProLiant-DL580-Gen9 192.168.1.128] Oct 06 17:19:29: module EnvPool not found: 'EnvPool'
+ERROR [tank-ProLiant-DL580-Gen9 192.168.1.128] Oct 06 17:19:29: 'EnvPool'
+Traceback (most recent call last):
+  File "/home/xys/xingtian-test/xingtian-master3/xingtian-master/xt/train.py", line 128, in start_train
+    return _makeup_learner(config_info, data_url, verbosity)
+  File "/home/xys/xingtian-test/xingtian-master3/xingtian-master/xt/train.py", line 48, in _makeup_learner
+    config_info = patch_alg_within_config(config_info.copy(), node_type="node_config")
+  File "/home/xys/xingtian-test/xingtian-master3/xingtian-master/xt/framework/learner.py", line 511, in patch_alg_within_config
+    env = env_builder(**config["env_para"])
+  File "/home/xys/xingtian-test/xingtian-master3/xingtian-master/xt/environment/__init__.py", line 23, in env_builder
+    return Registers.env[env_name](env_info, **kwargs)
+  File "/home/xys/xingtian-test/xingtian-master3/xingtian-master/zeus/common/util/register.py", line 56, in __getitem__
+    raise exc
+  File "/home/xys/xingtian-test/xingtian-master3/xingtian-master/zeus/common/util/register.py", line 50, in __getitem__
+    return self._dict[key]
+KeyError: 'EnvPool'

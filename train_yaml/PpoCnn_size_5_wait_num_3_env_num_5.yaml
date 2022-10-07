@@ -1,0 +1,54 @@
+agent_para:
+  agent_config:
+    complete_step: 10000000
+    max_steps: 128
+  agent_name: AtariPpo2
+  agent_num: 1
+alg_para:
+  alg_config:
+    prepare_times_per_train: 16
+  alg_name: PPO
+benchmark:
+  archive_root: /home/xys/xt_logs/ppo_pipeline_bolt
+  id: PpoCnn_size_5_wait_num_3_env_num_5
+  log_interval_to_train: 10
+env_num: 5
+env_para:
+  env_info:
+    name: BreakoutNoFrameskip-v4
+    size: 5
+    thread_affinity_offset: 0
+    wait_num: 3
+    wait_nums: 6
+  env_name: EnvPool
+model_para:
+  actor:
+    action_dim: 4
+    gpu_config:
+      cluster:
+        peers: null
+      self:
+        rank: null
+    input_dtype: uint8
+    model_config:
+      BATCH_SIZE: 320
+      CRITIC_LOSS_COEF: 1.0
+      ENTROPY_LOSS: 0.003
+      LOSS_CLIPPING: 0.1
+      LR: 0.001
+      MAX_GRAD_NORM: 5.0
+      NUM_SGD_ITER: 4
+      SUMMARY: false
+      VF_SHARE_LAYERS: true
+      activation: relu
+      gpu_nums: 3
+      hidden_sizes:
+      - 256
+    model_name: PpoCnn
+    state_dim:
+    - 84
+    - 84
+    - 4
+speedup: true
+start_core: 17
+using_envpool: true

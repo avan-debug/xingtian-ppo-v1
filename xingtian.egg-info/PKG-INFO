@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: xingtian
+Version: 0.3.0
+Summary: XingTian Library enables easy usage on the art Reinforcement Learning algorithms.
+Home-page: https://github.com/huawei-noah/xingtian
+Author: XingTian development team
+License: MIT
+Platform: UNKNOWN
+Requires-Python: >=3.6.*
+License-File: LICENSE
+
+UNKNOWN
+

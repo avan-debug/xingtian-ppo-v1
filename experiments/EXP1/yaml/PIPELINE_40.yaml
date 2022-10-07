@@ -1,0 +1,46 @@
+alg_para:
+  alg_name: PPO
+  alg_config:
+    prepare_times_per_train: 120
+env_para:
+  env_name: EnvPool
+  env_info:
+    name: BreakoutNoFrameskip-v4
+    size: 40
+    wait_nums: 38
+    thread_affinity_offset: 0
+agent_para:
+  agent_name: AtariPpo2
+  agent_num: 1
+  agent_config:
+    max_steps: 128
+    complete_step: 10000000
+model_para:
+  actor:
+    model_name: PpoCnn
+    state_dim:
+    - 84
+    - 84
+    - 4
+    action_dim: 4
+    input_dtype: uint8
+    model_config:
+      BATCH_SIZE: 320
+      CRITIC_LOSS_COEF: 1.0
+      ENTROPY_LOSS: 0.003
+      LOSS_CLIPPING: 0.1
+      LR: 0.00025
+      MAX_GRAD_NORM: 5.0
+      NUM_SGD_ITER: 4
+      SUMMARY: false
+      VF_SHARE_LAYERS: true
+      activation: relu
+      hidden_sizes:
+      - 256
+env_num: 3
+speedup: true
+using_envpool: true
+benchmark:
+  log_interval_to_train: 10
+  archive_root: ./logs
+  id: PIPELINE_40

@@ -1,0 +1,66 @@
+agent:
+  agent_config:
+    complete_step: 10000000
+    max_steps: 128
+  agent_name: AtariPpo
+  agent_num: 1
+alg:
+  alg_config:
+    agent_num: 1
+    api_type: standalone
+    env_attr:
+      agent_ids: &id001
+      - 0
+      api_type: standalone
+      episode_limit: 300
+      n_actions: 7
+      n_agents: 2
+      obs_shape: 17
+      state_shape: 27
+    instance_num: 15
+  alg_name: PPO
+  model_info:
+    actor:
+      action_dim: 4
+      input_dtype: uint8
+      model_config:
+        BATCH_SIZE: 320
+        CRITIC_LOSS_COEF: 1.0
+        ENTROPY_LOSS: 0.003
+        LOSS_CLIPPING: 0.1
+        LR: 0.00025
+        MAX_GRAD_NORM: 5.0
+        NUM_SGD_ITER: 4
+        SUMMARY: false
+        VF_SHARE_LAYERS: true
+        action_type: Categorical
+        activation: relu
+        agent_ids: *id001
+        api_type: standalone
+        episode_limit: 300
+        hidden_sizes:
+        - 256
+        n_actions: 7
+        n_agents: 2
+        obs_shape: 17
+        state_shape: 27
+      model_name: PpoCnn
+      state_dim:
+      - 84
+      - 84
+      - 4
+      type: learner
+archive_root: ./logs_primary_xingtian
+bm_board: null
+bm_eval: {}
+bm_id: primary_xingtian_exp15_block
+config_yaml: /home/xys/xingtian-test/xingtian-master/logs_primary_xingtian/primary_xingtian_exp15_block+220927233522T0/benchmark/train_config.yaml
+env:
+  env_info:
+    name: BreakoutNoFrameskip-v4
+    vision: false
+  env_name: AtariEnv
+eval_gap: 200
+record_csv: /home/xys/xingtian-test/xingtian-master/logs_primary_xingtian/primary_xingtian_exp15_block+220927233522T0/benchmark/records.csv
+start_time: 2022-09-27 23:35:22.490146
+workspace: /home/xys/xingtian-test/xingtian-master/logs_primary_xingtian/primary_xingtian_exp15_block+220927233522T0/benchmark
